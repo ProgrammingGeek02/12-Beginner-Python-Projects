@@ -27,10 +27,13 @@ def hangman():
         print('You have', lives, 'lives left and you have used these letters: ', ' '.join(used_letters))
 
         # what current word is (ie W - R D)
+        # letter for letter in word --> you're gonna see if letter (is) in used_letter (leave it as it is) else '-' ....At least that's the way I learned it
+        # Create a list where it will shows letter if letter is in used_letters. if not in used_letters, then it will shows just dash(-)
         word_list = [letter if letter in used_letters else '-' for letter in word]
         print('Current word: ', ' '.join(word_list))
 
         user_letter = input('Guess a letter: ').upper()
+        #Hii I'm so glad I've found that question (cuz I had a problem with that too :v) but what  that '-' does is subtract the letters from alphabet that are in used letters, so: if "used_letters" has ['A', 'B', 'C'] and "alphabet" has ['A','B','C','D','E',...,'Z'] --> alphabet-used_letters = ['D','E','F','G',...,'Z']
         if user_letter in alphabet - used_letters:
             used_letters.add(user_letter)
             if user_letter in word_letters:
